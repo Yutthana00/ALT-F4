@@ -20,4 +20,3 @@ if (process.env.JAWSDB_URL) {
 
 module.exports = sequelize;
 
-// Probs needs changing from localhost !!!
