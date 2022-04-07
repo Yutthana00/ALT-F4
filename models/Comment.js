@@ -22,12 +22,16 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+      
+    },
+    {
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment'
     }
+    
 )
 
 module.exports = Comment

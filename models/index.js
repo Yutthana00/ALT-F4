@@ -18,10 +18,13 @@ Comment.belongsTo(Review, {
     onDelete: 'CASCADE'
 })
 
-Review.hasMany(Game, {
+// are you hasMany or belongsTo? I will find out...
+// \/\/\/\/\/\/\/\/\/\/
+Review.belongsTo(Game, {
     foreignKey: 'review_id',
     onDelete: 'CASCADE'
 })
+// why are you here?
 
 Game.hasMany(Review, {
     foreignKey: 'game_id',

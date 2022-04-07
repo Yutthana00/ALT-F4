@@ -2,6 +2,11 @@ const { Model, DataTypes } = require('sequelize')
 const bcrypt = require('bcrypt')
 const sequelize = require('../config/connection')
 
+console.log("Sequelize: ", sequelize)
+
+console.log("typeof: ", typeof sequelize)
+
+
 
 class User extends Model {
     checkPassword(loginPass) {
@@ -32,6 +37,10 @@ class User extends Model {
         reviews: {
             type: DataTypes.STRING,
             allowNull: true,
+            references: {
+                model: 'review',
+                key: 'id'
+            }
         }
       },
       password: {
