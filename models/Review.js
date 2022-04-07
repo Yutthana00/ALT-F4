@@ -16,8 +16,24 @@ Review.init(
             allowNull: false,
         },
         user_name: {
-            
-
-        }
+            type: DataTypes.STRING,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        body: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        rating: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'review',
     }
 )
