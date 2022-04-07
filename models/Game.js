@@ -30,3 +30,5 @@ Game.init(
         modelName: 'game'
     }
 )
+
+module.exports = Game
