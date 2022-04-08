@@ -20,6 +20,14 @@ Comment.init(
       },
     },
 
+    review_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "review",
+        key: "id",
+      },
+    },
+
     comment: {
       type: DataTypes.STRING,
       allowNull: false,
