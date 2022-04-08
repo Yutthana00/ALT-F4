@@ -8,3 +8,5 @@ const gameData = [
       "Valorant is a free-to-play first-person hero shooter developed and published by Riot Games, for Microsoft Windows",
   },
 ];
+
+module.export = seedGame;

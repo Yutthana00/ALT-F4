@@ -7,5 +7,6 @@ const commentData = [
   },
 ];
 
+module.export = seedComment;
 // In Comment Module do we need a reference to
 // which review it links too?
