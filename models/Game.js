@@ -3,6 +3,8 @@ const sequelize = require("../config/connection");
 
 class Game extends Model {}
 
+//Any fields need to match the object thats returned from the api
+
 Game.init(
   {
     id: {

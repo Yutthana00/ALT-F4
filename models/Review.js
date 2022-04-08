@@ -17,8 +17,8 @@ Review.init(
       allowNull: false,
     },
 
-    user_name: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",

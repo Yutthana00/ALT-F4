@@ -35,14 +35,14 @@ User.init(
         isEmail: true,
       },
 
-      reviews: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        references: {
-          model: "review",
-          key: "id",
-        },
-      },
+      // reviews: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: true,
+      //   references: {
+      //     model: "review",
+      //     key: "id",
+      //   },
+      // },
     },
     password: {
       type: DataTypes.STRING,
@@ -54,10 +54,13 @@ User.init(
   },
   {
     hooks: {
+      // When a user creates an account, run this function on the password property's response on the object
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 15);
         return newUserData;
       },
+
+      // If a User wants to Update their password
       beforeUpdate: async (updatedUserData) => {
         updatedUserData.password = await bcrypt.hash(
           updatedUserData.password,
