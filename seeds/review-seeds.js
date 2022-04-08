@@ -7,3 +7,5 @@ const reviewData = [
     body: "This game is my favourite!",
   },
 ];
+
+module.export = seedReview;
