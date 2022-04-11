@@ -13,20 +13,37 @@ router.get('/', async (req, res) => {
 })
 
 
-router.post('/', async (req, res) => {
-    try {
-      const userData = await User.create(req.body);
+// Do we need this bit? !!!
+// router.post('/', async (req, res) => {
+//     try {
+//       const userData = await User.create(req.body);
   
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
+//       req.session.save(() => {
+//         req.session.user_id = userData.id;
+//         req.session.logged_in = true;
   
-        res.status(200).json(userData);
-      });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//         res.status(200).json(userData);
+//       });
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
+
+  router.post('/signUp', async (req, res) => {
+      try {
+          const userData = await User.create({
+             name: req.body.name,
+             email: req.body.email,
+             password: req.body.password, 
+          })
+
+          res.json(userData.get({ plain: true}))
+
+        //   redirect to dashboard if withAuth doesn't redirect once tested
+      } catch (err) {
+          res.status(400).json({ message: 'Please fill in all the required details!' })
+      }
+  })
   
   router.post('/login', async (req, res) => {
     try {
@@ -69,6 +86,9 @@ router.post('/', async (req, res) => {
       res.status(404).end();
     }
   });
+
+
+
 
 
 module.exports = router
