@@ -29,6 +29,8 @@ router.get('/', async (req, res) => {
 //     }
 //   });
 
+
+// Might need moving to homeroutes?????
   router.post('/signUp', async (req, res) => {
       try {
           const userData = await User.create({
