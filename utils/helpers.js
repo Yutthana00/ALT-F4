@@ -1,24 +1,30 @@
-async function gameFetch(url = 'https://api.igdb.com/v4/games/', data = {userSearch}) {
+// router.get('/', async (req, res) => {
+//     try {
+//         await function gameFetch(url = 'https://api.igdb.com/v4/games/', data = {userSearch}) {
     
-    const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        headers: {
-            'Content-Type': 'application/json',
-            'Client-ID': $clientID,
-            'Authorization': 'Bearer ' + $access_token
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        return response.json()
-    })
-    .then(gameData => {
-        console.log(gameData.name)
-    })
-
-}
+//     const response = await fetch(url, {
+//         method: 'POST',
+//         mode: 'cors',
+//         cache: 'no-cache',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Client-ID': process.env.client_id,
+//             'Authorization': process.env.authorization
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then(gameData => {
+//         console.log(gameData.name)
+//     })
+// }
+//     } catch (err) {
+//         console.log(err)
+//     }
+// } 
+// )
 
 
 // AXIOS method
