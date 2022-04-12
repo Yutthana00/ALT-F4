@@ -4,6 +4,9 @@ require("dotenv").config();
 const axios = require('axios');
 const { response } = require('express');
 
+
+// this does a thing and im writing it cause yasmin is telling me to
+// also it gets games and we need to pull the platform number into a seperate fetch to get the name of the platform!
 router.post('/:search', async (req, res) => {
 
 const userSearch = req.params.search
@@ -30,5 +33,7 @@ const userSearch = req.params.search
     }
 } 
 )
+
+router.post('/')
 
 module.exports = router
