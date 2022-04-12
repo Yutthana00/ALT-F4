@@ -33,8 +33,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// This directs all Requests through our controllers to respond with a given action
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening!'));
+  app.listen(PORT, () => console.log("Now listening!"));
 });
