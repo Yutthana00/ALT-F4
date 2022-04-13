@@ -4,7 +4,7 @@ const { Review, Game, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 
-router.get('/review', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const reviewData = await Review.findAll()
         console.log('Test to show review data ' + reviewData)
@@ -15,7 +15,7 @@ router.get('/review', async (req, res) => {
 })
 
 
-router.get('/review/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const reviewData = await Review.findByPk(req.params.id, {
             include: [
@@ -45,7 +45,7 @@ router.get('/review/:id', async (req, res) => {
 })
 
 
-router.post('/review/post', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newReview = await Review.create({
             ...req.body,
@@ -63,7 +63,7 @@ router.post('/review/post', withAuth, async (req, res) => {
 })
 
 
-router.delete('/review/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.destroy({
             where: {
@@ -85,13 +85,13 @@ router.delete('/review/:id', withAuth, async (req, res) => {
 })
 
 
-router.put('/review/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const reviewUpdate = await Review.update(
             {
             title: req.body.title,
             user_id: req.session.user_id,
-            body: req.body.text
+            body: req.body.body
             },
             {
             where: {
