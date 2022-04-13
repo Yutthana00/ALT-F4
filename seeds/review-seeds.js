@@ -4,7 +4,7 @@ const reviewData = [
   {
     title: "THIS GAME POG!!",
     user_name: "yazzie121",
-    body: "This game is my favourite!",
+    text: "This game is my favourite!",
   },
 ];
 

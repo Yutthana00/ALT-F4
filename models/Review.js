@@ -25,7 +25,7 @@ Review.init(
       },
     },
 
-    body: {
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
