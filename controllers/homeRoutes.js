@@ -62,4 +62,13 @@ router.get("/signUp", async (req, res) => {
   }
 });
 
+router.get("/aboutUs", async (req, res) => {
+  // when the user clicks 'about us' in nav bar send them to the about us page.
+  try {
+    res.render("aboutUs");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
