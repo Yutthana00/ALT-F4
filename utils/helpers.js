@@ -43,3 +43,25 @@
 // .catch(err => {
 //     console.error(err);
 // });
+
+
+// let unixDate = '${first_release_date}'
+
+// module.exports = {
+    
+// }
+// const moment = require('moment')
+// let unixDate = (1638921600 * 1000)
+// let releaseDate = moment(unixDate).format("DD-MM-YYYY");
+// console.log(releaseDate)
+
+// function timeConverter(unixDate) {
+//     let releaseDate = moment(unixDate).format("DD-MM-YYYY");
+//     console.log(releaseDate)
+// }
+
+// function timeConverter(unixDate) {
+//     let releaseDate = new Date(unixDate).toLocaleDateString("en-GB")
+//     console.log(releaseDate)
+// }
+// timeConverter()
