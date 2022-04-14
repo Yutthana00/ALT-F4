@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { homePageGames } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -6,10 +7,14 @@ router.get("/", async (req, res) => {
   try {
     // const for rendering all models we want on the page
     // expand with our own data to display ie Game
+    const response = await homePageGames()
+    console.log(JSON.stringify(response.data))
 
     res.render("homepage", {
       // this is where models will be rendered
       logged_in: req.session.logged_in,
+      // data for games for rendering
+      games: response.data
     });
   } catch (err) {
     res.status(500).json(err);
@@ -71,5 +76,16 @@ router.get("/aboutUs", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/gamerview', async (req, res) => {
+//   try {
+//     const gameData = await Game.findByPk()
+
+//   } catch (err){
+//     res.status(500).json(err)
+// }) 
+
+
+
 
 module.exports = router;

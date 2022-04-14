@@ -40,41 +40,34 @@ router.post('/:search', async (req, res) => {
     
     try {
         const response = await searchForGame(userSearch)
-        const games = response.data;
+        console.log(JSON.stringify(response.data))
 
-        // games.forEach(game => {
-        //     // Get platform names
-        //     // getPlatformNames(game.platforms)
-        //     // Get cover
-        //     // etc...
-        // });
-
-        res.json(response.data)
+        res.json({ games: response.data})
        
     } catch (err) {
         console.log(err)
     }
 })
 
-router.post('/', async (req, res) => {
-    try {
-        const response = await homePageGames()
-        const games = response.data
+// router.post('/', async (req, res) => {
+//     try {
+//         const response = await homePageGames()
+//         const games = response.data
 
-        res.json(response.data)
+//         res.json(response.data)
 
-        // games cover id doesn't iterate so commented out for now
-        for (i = 0; i < games.length; i++) {
-            const gameId = games[i].id
-            const gameName = games[i].name
-            // const gameCoverId = games[i].cover.id[i]
-            const gameCoverUrl = games[i].cover
-            console.log(gameId, gameName, gameCoverUrl)
-        }
+//         // games cover id doesn't iterate so commented out for now
+//         for (i = 0; i < games.length; i++) {
+//             const gameId = games[i].id
+//             const gameName = games[i].name
+//             // const gameCoverId = games[i].cover.id[i]
+//             const gameCoverUrl = games[i].cover
+//             console.log(gameId, gameName, gameCoverUrl)
+//         }
 
-    } catch (err) {
-        console.log(err)
-    }
-})
+//     } catch (err) {
+//         console.log(err)
+//     }
+// })
 
 module.exports = router
