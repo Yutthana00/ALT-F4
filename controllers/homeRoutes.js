@@ -25,13 +25,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
       // include: [{ model: Review }]
     });
 
-    const user = (userData = userData.get({ plain: true }));
+    const user = userData.get({ plain: true });
 
-    res.render("profile", {
+    res.render("dashboard", {
       ...user,
       logged_in: true,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
