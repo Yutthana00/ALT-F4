@@ -1,3 +1,84 @@
+{{! DASHBOARD }}
+<header class="bg-white shadow">
+  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+  </div>
+</header>
+
+<main>
+  <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+
+    <div class="px-4 py-6 sm:px-0">
+      <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
+
+        {{! ACCOUNT SETTINGS }}
+        <div>
+          <h2 class="text-xl font-bold m-6 text-gray-900">Account Settings</h2>
+
+          {{! ACCOUNT INFO BOX }}
+          <div class="bg-white shadow m-6 overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Applicant
+                Information</h3>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details
+                and application.</p>
+            </div>
+            <div class="border-t border-gray-200">
+              <dl>
+                {{! NAME SECTION }}
+                <div
+                  class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                >
+                  {{! NAME TITLE }}
+                  <dt class="text-sm font-medium text-gray-500">Name</dt>
+                  {{! USER NAME GOES HERE }}
+                  <dd
+                    class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                  >Placement</dd>
+                </div>
+
+                {{! EMAIL SECTION }}
+                <div
+                  class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                >
+                  {{! EMAIL TITLE }}
+                  <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                  {{! USER EMAIL GOES HERE }}
+                  <dd
+                    class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                  >placement@Example.com</dd>
+                </div>
+
+              </dl>
+            </div>
+          </div>
+
+          {{! LOGOUT }}
+          <button
+            class="bg-indigo-500 m-6 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
+          >
+            Logout
+          </button>
+
+          {{! DEACTIVATE ACCOUNT }}
+          <button
+            class="bg-red-500 m-6 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
+          >
+            Deactivatte Account
+          </button>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold m-6 text-gray-900">Previous Reviews</h2>
+        </div>
+
+        <h2 class="text-xl font-bold m-6 text-gray-900">Previous Comments</h2>
+      </div>
+    </div>
+
+  </div>
+</main>
+
 {{! OUR TEAM }}
 <section class="relative py-20 overflow-hidden bg-white">
   <span
