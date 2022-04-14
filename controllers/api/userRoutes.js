@@ -16,6 +16,8 @@ router.get("/", async (req, res) => {
 
 // CREATE a User & add to our db
 router.post("/signUp", async (req, res) => {
+
+  console.log(req.body)
   try {
     // Take the body of the request and map it to our User model
     const userData = await User.create({
@@ -24,13 +26,15 @@ router.post("/signUp", async (req, res) => {
       password: req.body.password,
     });
 
-    // Respond with our serialization step to return the raw data of the user
-    // This is achieved by running .get on the instance of the model
-    // Provide an object with 'plain: true' as the argument.
-    res.json(userData.get({ plain: true }));
+    // create a session once signed up
+    req.session.save(() => {
+        req.session.user_id = userData.id
+        req.session.logged_in = true
+        res.json({ user: userData, message: "You are signed up and logged in!" })
+    })
 
-    //  @TODO: redirect to dashboard if withAuth doesn't redirect once tested
   } catch (err) {
+    console.log(err)
     // If there is an error, respond with this error message.
     res
       .status(400)
