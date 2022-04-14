@@ -1,48 +1,17 @@
-{{! <div class="login-container">
-  <form action="/action_page.php">
-    <input type="text" placeholder="Username" name="username" />
-    <input type="text" placeholder="Password" name="psw" />
-    <button type="submit">Login</button>
-  </form>
-</div> }}
-
-{{! <div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
-
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-
-      <a type="button" href="">Sign Up</a>
-
-    </form>
-  </div>
-
-</div> }}
-
 {{! LOGIN PARTIAL }}
 <div
   class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
 
-  {{! HERO ICON }}
   <div class="max-w-md w-full space-y-8">
     <div>
+      {{! HERO ICON }}
       <img
-        class="mx-auto h-12 w-auto"
-        src="../public/images/6_copy.png"
+        class="mx-auto h-18 w-auto"
+        src="/images/6_copy.png"
         alt="ALTF4_Logo"
       />
+      {{! TITLE }}
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Log in
         to your account</h2>
     </div>
@@ -95,8 +64,11 @@
 
         {{! FORGOT PASSWORD }}
         <div class="text-sm">
-          <a href="" class="font-medium text-indigo-600 hover:text-indigo-500">
-            Forgot your password?
+          <a
+            href="/signUp"
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            Don't have an Account?
           </a>
         </div>
       </div>
@@ -135,3 +107,36 @@
 </div>
 
 <script src="../public/js/login.js"></script>
+
+{{! OLD LOGIN  }}
+{{! <div class="login-container">
+  <form action="/action_page.php">
+    <input type="text" placeholder="Username" name="username" />
+    <input type="text" placeholder="Password" name="psw" />
+    <button type="submit">Login</button>
+  </form>
+</div> }}
+
+{{! <div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+
+      <a type="button" href="">Sign Up</a>
+
+    </form>
+  </div>
+
+</div> }}
