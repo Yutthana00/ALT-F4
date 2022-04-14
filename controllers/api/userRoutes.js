@@ -6,7 +6,7 @@ const { User } = require("../../models");
 router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll();
-    console.log(userData)
+    console.log(userData);
     res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
@@ -39,6 +39,7 @@ router.post("/signUp", async (req, res) => {
 
 // User Login & Save the Session
 router.post("/login", async (req, res) => {
+  console.log("login triggered");
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
