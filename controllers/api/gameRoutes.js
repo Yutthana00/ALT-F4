@@ -42,12 +42,12 @@ router.post('/:search', async (req, res) => {
         const response = await searchForGame(userSearch)
         const games = response.data;
 
-        games.forEach(game => {
-            // Get platform names
-            // getPlatformNames(game.platforms)
-            // Get cover
-            // etc...
-        });
+        // games.forEach(game => {
+        //     // Get platform names
+        //     // getPlatformNames(game.platforms)
+        //     // Get cover
+        //     // etc...
+        // });
 
         res.json(response.data)
        
@@ -58,10 +58,20 @@ router.post('/:search', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const reponse = await homePageGames()
+        const response = await homePageGames()
         const games = response.data
 
-        // pull cover, slug
+        res.json(response.data)
+
+        // games cover id doesn't iterate so commented out for now
+        for (i = 0; i < games.length; i++) {
+            const gameId = games[i].id
+            const gameName = games[i].name
+            // const gameCoverId = games[i].cover.id[i]
+            const gameCoverUrl = games[i].cover
+            console.log(gameId, gameName, gameCoverUrl)
+        }
+
     } catch (err) {
         console.log(err)
     }

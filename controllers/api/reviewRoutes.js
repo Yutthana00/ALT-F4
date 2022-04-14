@@ -54,6 +54,7 @@ router.post('/', withAuth, async (req, res) => {
 
         if (!withAuth) {
             console.log('You need to be logged in to post a Review!')
+            return
         }
 
         res.status(200).json(newReview)
@@ -84,7 +85,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 })
 
-
+// body.body is easier then making the server again after altering the models
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const reviewUpdate = await Review.update(
