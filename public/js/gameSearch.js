@@ -3,7 +3,7 @@
 //     searchTerm = document.getElementById("#user-search").value
 
 //     const response = await searchForGame(searchTerm)
-  
+
 //     if (response.ok) {
 //       document.location.replace("search");
 //     } else {
@@ -13,24 +13,20 @@
 
 const { searchForGame } = require("../lib/igdb");
 
-// IM TRYING!!!
-  document
-  .querySelector("search-btn")
-  .addEventListener("submit", userSearch);
+const searchBtn = async (event) => {
+  userSearch = document.querySelector("#user-search").value.trim();
 
+  console.log("Searching for: ", userSearch);
 
-  const searchBtn = async (event) => {
-      userSearch = document.querySelector('#user-search').value.trim()
+  const response = await fetch(`/api/games/${userSearch}`);
 
-      console.log('Searching for: ', userSearch)
-
-      const response = await fetch(`/api/games/${userSearch}`)
-
-      if (response.ok) {
-          document.location.replace("/search")
-      } else {
-          alert("Nothing searched!")
-      }
-
+  if (response.ok) {
+    document.location.replace("/search");
+  } else {
+    alert("Nothing searched!");
   }
+};
 
+// IM TRYING!!!
+// Im sorry man theres nothing I can do
+document.querySelector("#search-btn").addEventListener("submit", searchBtn);

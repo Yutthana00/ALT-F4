@@ -3,10 +3,11 @@ const { homePageGames } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
 const withAuth = require("../utils/auth");
 
+// When the user wants to see the homepage:
 router.get("/", async (req, res) => {
   try {
-    // const for rendering all models we want on the page
-    // expand with our own data to display ie Game
+    // Rendering all models that are needed for the homepage
+    // Expand with our own data to display ie Game
     const response = await homePageGames();
     console.log(JSON.stringify(response.data));
     let games = response.data;
@@ -19,20 +20,22 @@ router.get("/", async (req, res) => {
     console.log("Final formatted:", games);
 
     res.render("homepage", {
-      // this is where models will be rendered
+      // This is where models will be rendered
       logged_in: req.session.logged_in,
-      // data for games for rendering
+      // Data for games for rendering
       games,
     });
   } catch (err) {
+    // Or provide an error if this was unable to go through
     res.status(500).json(err);
   }
 });
 
-// Using withAuth middleware to prevent access to dashboard without a login
+// UNFINISHED COMMENTS
+// When a user wants to look at their dashboard:
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    // finds
+    // Finds the users previous session with their id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       // include: [{ model: Review }]
@@ -40,6 +43,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
+    // Render this .handlebar partial &
     res.render("dashboard", {
       ...user,
       logged_in: true,
@@ -50,37 +54,68 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// When a user wants to login to our website:
 router.get("/login", async (req, res) => {
-  // if user is logged in redirect them to another route (dashboard)
+  // When a user clicks one of the 'login' buttons...
   try {
+    // If user is logged in, redirect them to another route (dashboard)
     if (req.session.logged_in) {
       res.redirect("/dashboard");
       return;
     }
-    res.render("login");
+
+    res.render("login"); // If not, rneder this .handlebar partial
   } catch (err) {
+    // Or provide an error if this was unable to go through
     res.status(500).json(err);
   }
 });
 
+// When a user wants to sign up to our website:
 router.get("/signUp", async (req, res) => {
-  // if user is logged in redirect them to another route (dashboard)
+  // When the user clicks one of the 'sign up' buttons...
   try {
+    // If user is logged in redirect them to another route (dashboard)
     if (req.session.logged_in) {
       res.redirect("/dashboard");
       return;
     }
-    res.render("signUp");
+    res.render("signUp"); // If not, render this .handlebar partial
   } catch (err) {
+    // Or provide an error if this was unable to go through
     res.status(500).json(err);
   }
 });
 
+// A user wants to read about ALT-F4 on the About Us page:
 router.get("/aboutUs", async (req, res) => {
-  // when the user clicks 'about us' in nav bar send them to the about us page.
+  // When the user clicks 'about us' in nav bar...
   try {
-    res.render("aboutUs");
+    res.render("aboutUs"); // Render this .handlebar partial
   } catch (err) {
+    // Or provide an error if this was unable to go through
+    res.status(500).json(err);
+  }
+});
+
+// A user wants to look at the Game Page of any Game available:
+router.get("/gamePage", async (req, res) => {
+  // When the user clicks on a Game...
+  try {
+    res.render("gamePage"); // Render this .handlebar partial
+  } catch (err) {
+    // Or provide an error if this was unable to go through
+    res.status(500).json(err);
+  }
+});
+
+// A user has searched for a game and now the list of games need to display:
+router.get("/search", async (req, res) => {
+  // When the user clicks on search...
+  try {
+    res.render("search"); // Render this .handlebar partial
+  } catch (err) {
+    // Or provide an error if this was unable to go through
     res.status(500).json(err);
   }
 });
