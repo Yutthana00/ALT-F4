@@ -39,10 +39,20 @@ router.post('/:search', async (req, res) => {
     // we don't have the search yet
     
     try {
-        const response = await searchForGame(userSearch)
-        console.log(JSON.stringify(response.data))
+        const response = await searchForGame(userSearch);
+        console.log(JSON.stringify(response.data));
+        let games = response.data;
+        for (let i = 0; i < games.length; i++) {
+          let url = games[i].cover.url;
+          let newUrl = url.replace("t_thumb", "t_1080p");
+          games[i].cover.url = newUrl;
+        }
+    
+        console.log("Final formatted:", games);
 
-        res.json({ games: response.data})
+        res.render("search", {
+            games
+        })
        
     } catch (err) {
         console.log(err)
