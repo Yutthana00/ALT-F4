@@ -1,3 +1,4 @@
+{{! This is the main page layoutso this is the only page that needs this head. }}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +15,7 @@
       href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
-
+    {{! Our Stylesheet }}
     <link rel="stylesheet" href="/css/style.css" />
 
   </head>
@@ -32,6 +33,7 @@
 
           {{! LOGO }}
           <a
+            {{! This makes the Text logo clickable to redirect to the homepage }}
             href="/"
             class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0"
           >
@@ -40,18 +42,13 @@
               class="mx-auto text-xl font-black leading-none text-gray-900 select-none"
             >ALT<span class="text-indigo-500">F4</span></span>
 
-            {{! <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="mr-4 h-10"
-              alt="FlowBite Logo"
-            /> }}
-
           </a>
 
           {{! NAV BAR }}
           <nav
             class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200"
           >
+
             <a
               href="/"
               class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
@@ -77,12 +74,17 @@
             type="search"
             name="search"
             placeholder="Search"
-            {{!-- USER SEARCH ID --}}
+            {{! USER SEARCH ID }}
             id="user-search"
           />
 
           {{! SEARCH BUTTON ICON }}
-          <button id="search-btn" type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+          <button
+            id="search-btn"
+            type="submit"
+            class="absolute right-0 top-0 mt-5 mr-4"
+          >
+            {{! This SVG creates the icon and the path is drawing the image from a set of Co-ordinates  }}
             <svg
               class="text-gray-600 h-4 w-4 fill-current"
               xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +135,7 @@
         {{! LEFT HAND LOGO }}
         <div class="mb-6 md:mb-0">
 
+          {{! This 'a' tag will create a link to redirect to the homepage}}
           <a href="/" target="_blank" class="flex items-center">
             {{! IMAGE LOGO }}
             <img src="/images/6_copy.png" class="mr-4 h-10" alt="ALTF4_LOGO" />
@@ -147,20 +150,23 @@
 
           {{! RESOURCES COLUMN }}
           <div>
+            {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >Resources</h3>
+
+            {{! List Below Column }}
             <ul>
               <li class="mb-4">
                 <a
-                  href="https://flowbite.com"
+                  href="/aboutUs"
                   target="_blank"
                   class="text-gray-600 hover:underline dark:text-gray-400"
                 >About Us</a>
               </li>
               <li>
                 <a
-                  href="https://tailwindcss.com/"
+                  href="/aboutUs"
                   target="_blank"
                   rel="nofollow"
                   class="text-gray-600 hover:underline dark:text-gray-400"
@@ -171,9 +177,13 @@
 
           {{! FOLLOW US COLUMN }}
           <div>
+
+            {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >Follow us</h3>
+
+            {{! List below Column }}
             <ul>
               <li class="mb-4">
                 <a
@@ -194,9 +204,13 @@
 
           {{! CONTACT COLUMN }}
           <div>
+
+            {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >Contact Us</h3>
+
+            {{! List Below Column }}
             <ul>
               <li class="mb-4">
                 <a
@@ -207,10 +221,10 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/aboutUs"
                   target="_blank"
                   class="text-gray-600 hover:underline dark:text-gray-400"
-                >idk</a>
+                >About Us</a>
               </li>
             </ul>
           </div>
@@ -230,7 +244,7 @@
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">©
           2022
           <a
-            href="https://flowbite.com"
+            href="/aboutUs"
             target="_blank"
             class="hover:underline"
           >ALT-F4™</a>. All Rights Reserved.
@@ -238,6 +252,11 @@
 
         {{! LEFT HAND SOCIAL MEDIA ICONS }}
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+          {{! Each icon is created using XML code block that is served and rendered in the browser }}
+          {{! Each Path within the SVG tags are the coordinates the image is drawn from }}
+          {{! The <a> href="" </a>  will create a corresponding link to the icon}}
+
+          {{! Icon 1 }}
           <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -255,6 +274,8 @@
               ></path>
             </svg>
           </a>
+
+          {{! Icon 2 }}
           <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -272,6 +293,8 @@
               ></path>
             </svg>
           </a>
+
+          {{! Icon 3 }}
           <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -288,6 +311,8 @@
               </path>
             </svg>
           </a>
+
+          {{! Icon 4 }}
           <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -305,6 +330,8 @@
               ></path>
             </svg>
           </a>
+
+          {{! Icon 5 }}
           <a
             href="#"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -322,6 +349,7 @@
               ></path>
             </svg>
           </a>
+
         </div>
 
       </div>
@@ -329,26 +357,4 @@
     </footer>
 
   </body>
-
-  {{! Scripts for Tailwind }}
-  {{! <script
-    type="module"
-    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js%22%3E"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js%22%3E"
-  ></script> }}
-
 </html>
-
-{{! IF WE NEED OLD NAV}}
-
-{{! <nav class="navbar">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="">Explore</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="">Discord</a></li>
-      </ul>
-    </nav> }}
