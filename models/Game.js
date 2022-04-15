@@ -1,42 +1,42 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+// const { Model, DataTypes } = require("sequelize");
+// const sequelize = require("../config/connection");
 
-class Game extends Model {}
+// class Game extends Model {}
 
-//Any fields need to match the object thats returned from the api
+// //Any fields need to match the object thats returned from the api
 
-Game.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+// Game.init(
+//   {
+//     id: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//       primaryKey: true,
+//       autoIncrement: true,
+//     },
 
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+//     title: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
 
-    imagelink: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+//     imagelink: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
 
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
+//     description: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//   },
 
-  {
-    sequelize,
-    timestamps: true,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "game",
-  }
-);
+//   {
+//     sequelize,
+//     timestamps: true,
+//     freezeTableName: true,
+//     underscored: true,
+//     modelName: "game",
+//   }
+// );
 
-module.exports = Game;
+// module.exports = Game;

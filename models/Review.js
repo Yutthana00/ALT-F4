@@ -12,10 +12,10 @@ Review.init(
       autoIncrement: true,
     },
 
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // title: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
 
     user_id: {
       type: DataTypes.INTEGER,
@@ -30,10 +30,16 @@ Review.init(
       allowNull: false,
     },
 
-    // rating: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false
-    // },
+    game_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   },
 
   {

@@ -20,15 +20,15 @@ Comment.belongsTo(Review, {
 
 // are you hasMany or belongsTo? I will find out...
 // \/\/\/\/\/\/\/\/\/\/
-Review.belongsTo(Game, {
-  foreignKey: "review_id",
-  onDelete: "CASCADE",
-});
-// why are you here?
+// Review.belongsTo(Game, {
+//   foreignKey: "review_id",
+//   onDelete: "CASCADE",
+// });
+// // why are you here?
 
-Game.hasMany(Review, {
-  foreignKey: "game_id",
-  onDelete: "CASCADE",
-});
+// Game.hasMany(Review, {
+//   foreignKey: "game_id",
+//   onDelete: "CASCADE",
+// });
 
 module.exports = { User, Comment, Game, Review };

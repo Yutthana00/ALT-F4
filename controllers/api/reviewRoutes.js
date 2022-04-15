@@ -15,13 +15,10 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/:id', async (req, res) => {
+router.get('/review', async (req, res) => {
     try {
         const reviewData = await Review.findByPk(req.params.id, {
             include: [
-                {
-                    model: Game,
-                },
                 {
                     model: User,
                 },
@@ -45,12 +42,19 @@ router.get('/:id', async (req, res) => {
 })
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/:game_id', withAuth, async (req, res) => {
     try {
+        console.log('you are here')
+
+        // let body = req.body
+
         const newReview = await Review.create({
-            ...req.body,
-            user_id: req.session.user_id
+            game_id: req.params.game_id,
+            body: req.body.body,
+            user_id: req.session.user_id,
         })
+
+        console.log(newReview)
 
         if (!withAuth) {
             console.log('You need to be logged in to post a Review!')
