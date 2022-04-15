@@ -15,16 +15,18 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/review', async (req, res) => {
+router.get('/:game_id', async (req, res) => {
+    console.log(req.params.game_id)
     try {
-        const reviewData = await Review.findByPk(req.params.id, {
+        const reviewData = await Review.findAll({
+            where: {
+                game_id: req.params.game_id
+            },
             include: [
                 {
                     model: User,
+                    attributes: ['name']
                 },
-                {
-                    model: Comment,
-                }
             ]
         })
 
@@ -38,6 +40,7 @@ router.get('/review', async (req, res) => {
         res.status(200).json(reviewData)
     } catch (err) {
         res.status(400).json(err)
+        console.log(err)
     }
 })
 
