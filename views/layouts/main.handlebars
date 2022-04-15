@@ -1,5 +1,5 @@
 {{! This is the main page layoutso this is the only page that needs this head. }}
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,6 +18,8 @@
     />
     {{! Our Stylesheet }}
     <link rel="stylesheet" href="/css/style.css" />
+    {{!-- LOGO ADDED TO WEBSITE--}}
+    <link rel="shortcut icon" type="image/jpg" href="/images/croped_logo.jpg"/>
 
   </head>
 
@@ -38,10 +40,19 @@
             href="/"
             class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0"
           >
-
-            <span
+{{!-- ALT F4 logo ghost --}}
+            {{! <span
               class="mx-auto text-xl font-black leading-none text-gray-900 select-none"
-            >ALT<span class="text-indigo-500">F4</span></span>
+            >ALT<span class="text-indigo-500">F4</span></span> }}
+
+            {{! This 'a' tag will create a link to redirect to the homepage}}
+          <a href="/" target="_blank" class="flex items-center">
+            {{! IMAGE LOGO TOP LEFT }}
+            <img
+              src="/images/croped_logo.jpg"
+              class="mr-0 h-10"
+              alt="ALTF4_LOGO"
+            />
 
           </a>
 
@@ -139,7 +150,11 @@
           {{! This 'a' tag will create a link to redirect to the homepage}}
           <a href="/" target="_blank" class="flex items-center">
             {{! IMAGE LOGO }}
-            <img src="/images/6_copy.png" class="mr-4 h-10" alt="ALTF4_LOGO" />
+            <img
+              src="/images/croped_logo.jpg"
+              class="mr-0 h-10"
+              alt="ALTF4_LOGO"
+            />
             <span
               class="mx-auto text-xl font-black leading-none text-gray-900 select-none"
             >ALT<span class="text-indigo-500">F4</span></span>
