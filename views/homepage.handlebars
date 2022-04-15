@@ -52,42 +52,7 @@
     {{! ARTICLE SECTION }}
     <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
 
-      {{!-- this is for looping through the homepagegames() to display them --}}
-      {{#each games as |game|}}
-
-      {{! GAME DYNAMIC }}
-      <div
-        class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4"
-      >
-        <a href="#_" class="block">
-          <img
-            class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
-            src="{{game.cover}}"
-          />
-        </a>
-        <div
-          class="flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block bg-indigo-500"
-        >
-          <span class="">{{game.genre}}</span>
-        </div>
-        <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a
-            href="#_"
-            class=""
-            {{!-- V is how to get the data to generate dynamically --}}
-          >{{game.name}}</a></h2>
-        <p class="text-sm text-gray-500">{{game.summary}}</p>
-        <p class="pt-2 text-xs font-medium"><a
-            href="#_"
-            class="mr-1 underline"
-          >FromSoftware</a>
-          ·
-          <span class="mx-1">Feb 25, 2022</span>
-          ·
-          <span class="mx-1 text-gray-600">Metascore: 95%</span></p>
-      </div>
-      {{/each}}
-
-       {{! GAME 1 }}
+      {{! GAME 1 }}
       <div
         class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4"
       >
@@ -105,7 +70,7 @@
         <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a
             href="#_"
             class=""
-            {{!-- V is how to get the data to generate dynamically --}}
+            {{! V is how to get the data to generate dynamically }}
           >Elden Ring</a></h2>
         <p class="text-sm text-gray-500">Elden Ring is a fantasy, action and
           open world game. Rise, Tarnished, and be guided by grace to brandish
@@ -278,6 +243,62 @@
           ·
           <span class="mx-1 text-gray-600">Metascore: 88%</span></p>
       </div>
+
+      {{! EXPLORE PAGE HEADER }}
+      <section
+        class="relative block py-20 overflow-hidden leading-6 text-left text-indigo-900 bg-white"
+      >
+        <div
+          class="w-full max-w-2xl px-16 mx-auto leading-6 text-left sm:px-12 md:px-8 xl:px-12"
+        >
+          <div
+            class="relative w-full px-4 leading-6 text-center xl:flex-grow-0 xl:flex-shrink-0 lg:flex-grow-0 lg:flex-shrink-0"
+          >
+            <div
+              class="box-border text-sm font-semibold uppercase text-indigo-500"
+            >Top Rated Games</div>
+            <h2
+              class="box-border mx-0 mt-6 mb-0 font-sans text-4xl font-bold leading-tight sm:text-5xl md:text-6xl text-gray-800"
+            >Explore More</h2>
+          </div>
+        </div>
+      </section>
+
+      {{! DYNAMIC TOP RATED GAMES }}
+      {{! this is for looping through the homepagegames() to display them }}
+      {{#each games as |game|}}
+
+        {{! GAME DYNAMIC }}
+        <div
+          class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4"
+        >
+          <a href="#_" class="block">
+            <img
+              class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
+              src="{{game.cover}}"
+            />
+          </a>
+          <div
+            class="flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block bg-indigo-500"
+          >
+            <span class="">{{game.genre}}</span>
+          </div>
+          <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a
+              href="#_"
+              class=""
+              {{! V is how to get the data to generate dynamically }}
+            >{{game.name}}</a></h2>
+          <p class="text-sm text-gray-500">{{game.summary}}</p>
+          <p class="pt-2 text-xs font-medium"><a
+              href="#_"
+              class="mr-1 underline"
+            >FromSoftware</a>
+            ·
+            <span class="mx-1">Feb 25, 2022</span>
+            ·
+            <span class="mx-1 text-gray-600">Metascore: 95%</span></p>
+        </div>
+      {{/each}}
 
     </div>
   </div>
