@@ -1,4 +1,37 @@
-<div class="bg-white">
+{{! CONTENT LAYOUT }}
+    <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
+
+{{! DYNAMIC SEARCHED GAMES RESULT }}
+      {{! looping through the searchGamepage() to display them }}
+      {{#each games as |game|}}
+
+        {{! GAME DYNAMIC }}
+        <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
+          <a href="#_" class="block">
+            <img
+              class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src="{{game.cover.url}}"/>
+          </a>
+          <div class="flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block bg-indigo-500">
+            <span class="">{{game.genre}}</span>
+          </div>
+          <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a
+              href="#_"
+              class="">{{game.name}}</a></h2>
+
+              {{! V is how to get the data to generate dynamically }}
+          <p class="text-sm text-gray-500">{{game.summary}}</p>
+          <p class="pt-2 text-xs font-medium"><a
+              href="#_"
+              class="mr-1 underline"
+            >FromSoftware</a>
+            ·
+            <span class="mx-1">Feb 25, 2022</span>
+            ·
+            <span class="mx-1 text-gray-600">Metascore: 95%</span></p>
+        </div>
+      {{/each}}
+
+{{!-- <div class="bg-white">
   <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Results for your searched game</h2>
 
@@ -164,4 +197,4 @@
       <!-- More products... -->
     </div>
   </div>
-</div>
+</div> --}}
