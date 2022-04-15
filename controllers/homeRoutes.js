@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { homePageGames } = require("../lib/igdb");
+const { homePageGames, searchForGame } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -54,6 +54,35 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get('/search/:search', async (req, res) => {
+
+  const userSearch = req.params.search
+  // we don't have the search yet
+  
+  try {
+      const response = await searchForGame(userSearch);
+      console.log(JSON.stringify(response.data));
+      let games = response.data;
+      for (let i = 0; i < games.length; i++) {
+        if (!games[i].cover) {
+          continue
+        }
+        let url = games[i].cover.url;
+        let newUrl = url.replace("t_thumb", "t_1080p");
+        games[i].cover.url = newUrl;
+      }
+  
+      console.log("Final formatted:", games);
+
+      res.render("search", {
+          games
+      })
+     
+  } catch (err) {
+      console.log(err)
+  }
+})
+
 // When a user wants to login to our website:
 router.get("/login", async (req, res) => {
   // When a user clicks one of the 'login' buttons...
@@ -99,7 +128,7 @@ router.get("/aboutUs", async (req, res) => {
 });
 
 // A user wants to look at the Game Page of any Game available:
-router.get("/gamePage", async (req, res) => {
+router.get("/review/:game_id", async (req, res) => {
   // When the user clicks on a Game...
   try {
     res.render("gamePage"); // Render this .handlebar partial
@@ -109,16 +138,17 @@ router.get("/gamePage", async (req, res) => {
   }
 });
 
-// A user has searched for a game and now the list of games need to display:
-router.get("/search", async (req, res) => {
-  // When the user clicks on search...
-  try {
-    res.render("search"); // Render this .handlebar partial
-  } catch (err) {
-    // Or provide an error if this was unable to go through
-    res.status(500).json(err);
-  }
-});
+
+// // A user has searched for a game and now the list of games need to display:
+// router.get("/search", async (req, res) => {
+//   // When the user clicks on search...
+//   try {
+//     res.render("search"); // Render this .handlebar partial
+//   } catch (err) {
+//     // Or provide an error if this was unable to go through
+//     res.status(500).json(err);
+//   }
+// });
 
 // router.get('/gamerview', async (req, res) => {
 //   try {

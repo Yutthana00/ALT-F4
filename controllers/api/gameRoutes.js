@@ -33,7 +33,7 @@ const { searchForGame, homePageGames } = require('../../lib/igdb')
 // )
 
 
-router.post('/:search', async (req, res) => {
+/* router.get('/:search', async (req, res) => {
 
     const userSearch = req.params.search
     // we don't have the search yet
@@ -57,7 +57,7 @@ router.post('/:search', async (req, res) => {
     } catch (err) {
         console.log(err)
     }
-})
+}) */
 
 // router.post('/', async (req, res) => {
 //     try {

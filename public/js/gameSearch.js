@@ -11,22 +11,21 @@
 //     }
 //   };
 
-const { searchForGame } = require("../lib/igdb");
 
 const searchBtn = async (event) => {
   userSearch = document.querySelector("#user-search").value.trim();
 
-  console.log("Searching for: ", userSearch);
+  document.location.replace(`/search/${encodeURIComponent(userSearch)}`)
 
-  const response = await fetch(`/api/games/${userSearch}`);
+  /* const response = await fetch(`/api/games/${encodeURIComponent(userSearch)}`);
 
   if (response.ok) {
-    document.location.replace("/search");
+    document.location.replace("/:search");
   } else {
     alert("Nothing searched!");
-  }
+  } */
 };
 
 // IM TRYING!!!
 // Im sorry man theres nothing I can do
-document.querySelector("#search-btn").addEventListener("submit", searchBtn);
+document.querySelector("#search-btn").addEventListener("click", searchBtn);
