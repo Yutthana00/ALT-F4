@@ -105,10 +105,9 @@ router.get("/review/:game_id", async (req, res) => {
       let newScreenshotUrl = screenshotUrl.replace("t_thumb", "t_1080p")
       games[i].screenshots.url = newScreenshotUrl
     }
-    
 
     // gameGenre = JSON.stringify(games.genres.name)
-    console.log(games.genres)
+    console.log(JSON.stringify(games.genres))
 
     res.render("gamePage", {
       games,
