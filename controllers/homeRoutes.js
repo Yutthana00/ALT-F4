@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { first } = require("lodash");
 const { homePageGames, searchForGame, gameReviewPage } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
 const withAuth = require("../utils/auth");
@@ -104,6 +105,7 @@ router.get("/review/:game_id", async (req, res) => {
       let newScreenshotUrl = screenshotUrl.replace("t_thumb", "t_1080p")
       games[i].screenshots.url = newScreenshotUrl
     }
+    
 
     // gameGenre = JSON.stringify(games.genres.name)
     console.log(games.genres)

@@ -1,3 +1,4 @@
+// const moment = require('moment')
 // const userSearch = async (event) => {
 
 //     searchTerm = document.getElementById("#user-search").value
@@ -13,7 +14,7 @@
 
 
 const searchBtn = async (event) => {
-  userSearch = document.querySelector("#user-search").value.trim();
+  userSearch = document.querySelector("#user-search").value;
 
   document.location.replace(`/search/${encodeURIComponent(userSearch)}`)
 
@@ -38,3 +39,19 @@ const gameIdHref = async (event) => {
 }
 
 // document.querySelector('#game-cover').addEventListener('click', gameIdHref)
+
+
+
+// RELEASE DATE CONVERTER !!!
+
+
+
+const timeConverter = async (event) => {
+    unixDate = document.querySelector('#release-date').value.trim()
+    let first_release_date = moment(unixDate).format("DD-MM-YYYY");
+    console.log(first_release_date)
+}
+
+// timeConverter(unixDate)
+
+
