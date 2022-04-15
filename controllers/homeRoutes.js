@@ -7,14 +7,22 @@ router.get("/", async (req, res) => {
   try {
     // const for rendering all models we want on the page
     // expand with our own data to display ie Game
-    const response = await homePageGames()
-    console.log(JSON.stringify(response.data))
+    const response = await homePageGames();
+    console.log(JSON.stringify(response.data));
+    let games = response.data;
+    for (let i = 0; i < games.length; i++) {
+      let url = games[i].cover.url;
+      let newUrl = url.replace("t_thumb", "t_1080p");
+      games[i].cover.url = newUrl;
+    }
+
+    console.log("Final formatted:", games);
 
     res.render("homepage", {
       // this is where models will be rendered
       logged_in: req.session.logged_in,
       // data for games for rendering
-      games: response.data
+      games,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -83,9 +91,6 @@ router.get("/aboutUs", async (req, res) => {
 
 //   } catch (err){
 //     res.status(500).json(err)
-// }) 
-
-
-
+// })
 
 module.exports = router;
