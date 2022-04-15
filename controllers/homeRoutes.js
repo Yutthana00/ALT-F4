@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { homePageGames, searchForGame } = require("../lib/igdb");
+const { homePageGames, searchForGame, gameReviewPage } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -83,6 +83,17 @@ router.get('/search/:search', async (req, res) => {
   }
 })
 
+// A user wants to look at the Game Page of any Game available:
+router.get("/review/:game_id", async (req, res) => {
+  // When the user clicks on a Game...
+  try {
+    res.render("gamePage"); // Render this .handlebar partial
+  } catch (err) {
+    // Or provide an error if this was unable to go through
+    res.status(500).json(err);
+  }
+});
+
 // When a user wants to login to our website:
 router.get("/login", async (req, res) => {
   // When a user clicks one of the 'login' buttons...
@@ -127,16 +138,7 @@ router.get("/aboutUs", async (req, res) => {
   }
 });
 
-// A user wants to look at the Game Page of any Game available:
-router.get("/review/:game_id", async (req, res) => {
-  // When the user clicks on a Game...
-  try {
-    res.render("gamePage"); // Render this .handlebar partial
-  } catch (err) {
-    // Or provide an error if this was unable to go through
-    res.status(500).json(err);
-  }
-});
+
 
 
 // // A user has searched for a game and now the list of games need to display:
