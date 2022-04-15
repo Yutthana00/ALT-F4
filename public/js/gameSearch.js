@@ -29,3 +29,12 @@ const searchBtn = async (event) => {
 // IM TRYING!!!
 // Im sorry man theres nothing I can do
 document.querySelector("#search-btn").addEventListener("click", searchBtn);
+
+// potentially for review page id finding
+const gameIdHref = async (event) => {
+    game_id = document.querySelector('#game_id').value.trim()
+
+    document.location.replace(`/review/${encodeURIComponent(game_id)}`)
+}
+
+// document.querySelector('#game-cover').addEventListener('click', gameIdHref)

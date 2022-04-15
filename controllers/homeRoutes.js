@@ -86,10 +86,35 @@ router.get('/search/:search', async (req, res) => {
 // A user wants to look at the Game Page of any Game available:
 router.get("/review/:game_id", async (req, res) => {
   // When the user clicks on a Game...
+  let game_id = req.params.game_id
+
   try {
-    res.render("gamePage"); // Render this .handlebar partial
+    const response = await gameReviewPage(game_id)
+    console.log(JSON.stringify(response.data))
+    let games = response.data
+
+    for (let i = 0; i < games.length; i++) {
+      let url = games[i].cover.url;
+      let newUrl = url.replace("t_thumb", "t_1080p");
+      games[i].cover.url = newUrl;
+    }
+
+    for (let i = 0; i > games.length; i++) {
+      let screenshotUrl = games[i].screenshots.url
+      let newScreenshotUrl = screenshotUrl.replace("t_thumb", "t_1080p")
+      games[i].screenshots.url = newScreenshotUrl
+    }
+
+    // gameGenre = JSON.stringify(games.genres.name)
+    console.log(games.genres)
+
+    res.render("gamePage", {
+      games,
+      // gameGenre
+    }); // Render this .handlebar partial
   } catch (err) {
     // Or provide an error if this was unable to go through
+    console.log(err)
     res.status(500).json(err);
   }
 });
