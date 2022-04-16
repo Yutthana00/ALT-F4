@@ -56,103 +56,100 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get('/search/:search', async (req, res) => {
-
-  const userSearch = req.params.search
+router.get("/search/:search", async (req, res) => {
+  const userSearch = req.params.search;
   // we don't have the search yet
-  
-  try {
-      const response = await searchForGame(userSearch);
-      console.log(JSON.stringify(response.data));
-      let games = response.data;
-      for (let i = 0; i < games.length; i++) {
-        if (!games[i].cover) {
-          continue
-        }
-        let url = games[i].cover.url;
-        let newUrl = url.replace("t_thumb", "t_1080p");
-        games[i].cover.url = newUrl;
-      }
-  
-      console.log("Final formatted:", games);
-
-      res.render("search", {
-          games
-      })
-     
-  } catch (err) {
-      console.log(err)
-  }
-})
-
-
-// A user wants to look at the Game Page of any Game available:
-router.get("/review/:game_id", async (req, res) => {
-  // When the user clicks on a Game...
-  let game_id = req.params.game_id
 
   try {
-    const response = await gameReviewPage(game_id)
-    console.log(JSON.stringify(response.data))
-    let games = response.data
-
+    const response = await searchForGame(userSearch);
+    console.log(JSON.stringify(response.data));
+    let games = response.data;
     for (let i = 0; i < games.length; i++) {
+      if (!games[i].cover) {
+        continue;
+      }
       let url = games[i].cover.url;
       let newUrl = url.replace("t_thumb", "t_1080p");
       games[i].cover.url = newUrl;
     }
 
-    for (let i = 0; i > games.length; i++) {
-      let screenshotUrl = games[i].screenshots.url
-      let newScreenshotUrl = screenshotUrl.replace("t_thumb", "t_1080p")
-      games[i].screenshots.url = newScreenshotUrl
-    }
+    console.log("Final formatted:", games);
 
-    // gameGenre = JSON.stringify(games.genres.name)
-    // console.log(JSON.stringify(games.genres))
+    res.render("search", {
+      games,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// A user wants to look at the Game Page of any Game available:
+router.get("/review/:game_id", async (req, res) => {
+  // When the user clicks on a Game...
+  let game_id = req.params.game_id;
+
+  try {
+    const response = await gameReviewPage(game_id);
+    console.log(JSON.stringify(response.data));
+    let game = response.data[0];
+
+    console.log(JSON.stringify(game));
+
+    let url = game.cover.url;
+    let newUrl = url.replace("t_thumb", "t_1080p");
+    game.cover.url = newUrl;
+
+    // for (let i = 0; i < games.length; i++) {
+    //   let url = games[i].cover.url;
+    //   let newUrl = url.replace("t_thumb", "t_1080p");
+    //   games[i].cover.url = newUrl;
+    // }
+
+    const reviewData = await Review.findAll({
+      where: { game_id },
+      include: [User],
+    });
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
 
     res.render("gamePage", {
-      games,
+      game,
+      reviews,
       // gameGenre
     }); // Render this .handlebar partial
   } catch (err) {
     // Or provide an error if this was unable to go through
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-
 router.post("/review/:game_id", withAuth, async (req, res) => {
   try {
-      
-      let user_id = req.session.user_id
-      let game_id = req.params.game_id
-      console.log('you are in the post review')
-      console.log('The body is ', req.body)
-      console.log('userid is ', user_id)
-      console.log('gameid is ', game_id)
+    let user_id = req.session.user_id;
+    let game_id = req.params.game_id;
+    console.log("you are in the post review");
+    console.log("The body is ", req.body);
+    console.log("userid is ", user_id);
+    console.log("gameid is ", game_id);
 
-      const newReview = await Review.create({
-          body: req.body.body,
-          game_id: req.params.game_id,
-          user_id: user_id,
-      })
+    const newReview = await Review.create({
+      body: req.body.body,
+      game_id: req.params.game_id,
+      user_id: user_id,
+    });
 
-      console.log(newReview)
+    console.log(newReview);
 
-      if (!withAuth) {
-          console.log('You need to be logged in to post a Review!')
-          return
-      }
+    if (!withAuth) {
+      console.log("You need to be logged in to post a Review!");
+      return;
+    }
 
-      res.status(200).json(newReview)
+    res.status(200).json(newReview);
   } catch (err) {
-      res.status(400).json(err)
+    res.status(400).json(err);
   }
-})
-
-
+});
 
 // When a user wants to login to our website:
 router.get("/login", async (req, res) => {
@@ -197,9 +194,6 @@ router.get("/aboutUs", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
 
 // // A user has searched for a game and now the list of games need to display:
 // router.get("/search", async (req, res) => {

@@ -1,6 +1,6 @@
 {{! THE MAIN GAME PAGE }}
 {{! Each allows us to loop through the game data and display dynamically depending on the game the user chooses }}
-{{#each games as |game|}}
+{{!-- {{#each games as |game|}} --}}
 {{! This is the code that is being displayed }}
   <section class="w-full bg-white">
     <div
@@ -46,7 +46,7 @@
       </div>
     </div>
   </section>
-{{/each}}
+{{!-- {{/each}} --}}
 
 {{! Reviews Page }}
 <section class="w-full bg-gray-50 sm:py-16 py-12 md:py-20 relative">
@@ -95,18 +95,18 @@
     </div>
 
 {{! Reviews Render Here dynamicly}}
-    {{#each Review as |Review|}}
+    {{#each reviews as |review|}}
     <div>
       <div class="h-auto bg-white rounded-xl shadow-sm p-6 relative">
         <div
           class="flex items-center border-b relative border-gray-100 border-solid pb-5 mb-5"
         >
           <div class="relative">
-            <p class="font-semibold text-gray-600 leading-none my-1">{{$User.name}}</p>
-            <p class="font-medium text-sm text-gray-400">{{$Review.date_created}}</p>
+            <p class="font-semibold text-gray-600 leading-none my-1">{{review.user.name}}</p>
+            <p class="font-medium text-sm text-gray-400">{{review.date_created}}</p>
           </div>
         </div>
-        <blockquote class="text-gray-400 z-10 leading-7 relative pb-3">{{$Review.body}}</blockquote>
+        <blockquote class="text-gray-400 z-10 leading-7 relative pb-3">{{review.body}}</blockquote>
         <svg
           class="h-auto absolute z-0 top-0 right-0 w-12 opacity-30 mt-6 mr-7 text-gray-200"
           fill="currentColor"
