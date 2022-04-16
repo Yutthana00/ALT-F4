@@ -6,7 +6,7 @@
     <div
       class="px-10 pt-16 pb-16 ml-auto mr-auto max-w-7xl md:px-24 lg:px-12 lg:py-20"
     >
-      <div class="grid gap-5 lg:grid-cols-2">
+      <div class="grid gap-5 lg:grid-cols-2 bg-right">
 
         {{! Right-hand Div to display game information  }}
         <div class="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
@@ -22,7 +22,9 @@
             </div>
 
             {{! Dynamically displaying the summary of the chosen game }}
-            <p class="text-base text-gray-700 md:text-lg">{{game.summary}}</p>
+            <p
+              class="text-base text-gray-700 md:text-lg text-justify"
+            >{{game.summary}}</p>
           </div>
 
           {{! Purple Line }}
@@ -35,12 +37,12 @@
         </div>
 
         {{! Cover Image that corresponds to the game }}
-        <div class="flex justify-center l-full w-full lg:items-center">
+        <div class="flex justify-center lg:items-center">
 
-          <div class="pl-5">
+          <div class="p-9 m-9">
             <img
               src="{{game.cover.url}}"
-              class="object-contain w-full h-full rounded shadow-lg lg:h-64 xl:h-80 lg:w-64 xl:w-80"
+              class="object-contain w-full h-full rounded xl:h-70"
             />
           </div>
         </div>
@@ -142,8 +144,10 @@
             <p class="font-medium text-sm text-gray-400">46/20/2089 20:00</p>
           </div>
         </div>
-        <blockquote class="text-gray-400 z-10 leading-7 relative pb-3">"THIS WAS
-          THE BESTEST GAME EVER POGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"</blockquote>
+        <blockquote class="text-gray-400 z-10 leading- relative pb-3">"THIS WAS
+          THE BESTEST GAME THE BESTEST GAME THE BESTEST GAME THE BESTEST GAME
+          THE BESTEST GAME THE BESTEST GAME THE BESTEST GAME THE BESTEST GAME
+          THE BESTEST GAME THE BESTEST GAME THE BESTEST GAME "</blockquote>
         <svg
           class="h-auto absolute z-0 top-0 right-0 w-12 opacity-30 mt-6 mr-7 text-gray-200"
           fill="currentColor"
