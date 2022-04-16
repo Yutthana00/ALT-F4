@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { json } = require("express/lib/response");
 const { first } = require("lodash");
 const { homePageGames, searchForGame, gameReviewPage } = require("../lib/igdb");
 const { User, Comment, Review, Game } = require("../models");
@@ -84,6 +85,7 @@ router.get('/search/:search', async (req, res) => {
   }
 })
 
+
 // A user wants to look at the Game Page of any Game available:
 router.get("/review/:game_id", async (req, res) => {
   // When the user clicks on a Game...
@@ -107,7 +109,7 @@ router.get("/review/:game_id", async (req, res) => {
     }
 
     // gameGenre = JSON.stringify(games.genres.name)
-    console.log(JSON.stringify(games.genres))
+    // console.log(JSON.stringify(games.genres))
 
     res.render("gamePage", {
       games,
@@ -119,6 +121,38 @@ router.get("/review/:game_id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.post("/review/:game_id", withAuth, async (req, res) => {
+  try {
+      
+      let user_id = req.session.user_id
+      let game_id = req.params.game_id
+      console.log('you are in the post review')
+      console.log('The body is ', req.body)
+      console.log('userid is ', user_id)
+      console.log('gameid is ', game_id)
+
+      const newReview = await Review.create({
+          body: req.body.body,
+          game_id: req.params.game_id,
+          user_id: user_id,
+      })
+
+      console.log(newReview)
+
+      if (!withAuth) {
+          console.log('You need to be logged in to post a Review!')
+          return
+      }
+
+      res.status(200).json(newReview)
+  } catch (err) {
+      res.status(400).json(err)
+  }
+})
+
+
 
 // When a user wants to login to our website:
 router.get("/login", async (req, res) => {

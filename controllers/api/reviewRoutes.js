@@ -45,30 +45,35 @@ router.get('/:game_id', async (req, res) => {
 })
 
 
-router.post('/:game_id', withAuth, async (req, res) => {
-    try {
-        console.log('you are here')
+// router.post('/:game_id', withAuth, async (req, res) => {
+//     try {
 
-        // let body = req.body
+//         // const game_id = req.params.game_id
+//         const user_id = req.session.user_id
+//         // const game_id = game_id
+//         console.log('you are in the post review')
+//         console.log('The body is ', req.body)
+//         console.log('userid is ', user_id)
+//         console.log('gameid is ',  )
 
-        const newReview = await Review.create({
-            game_id: req.params.game_id,
-            body: req.body.body,
-            user_id: req.session.user_id,
-        })
+//         const newReview = await Review.create({
+//             body: req.body.body,
+//             game_id: req.params.game_id,
+//             user_id: user_id,
+//         })
 
-        console.log(newReview)
+//         console.log(newReview)
 
-        if (!withAuth) {
-            console.log('You need to be logged in to post a Review!')
-            return
-        }
+//         if (!withAuth) {
+//             console.log('You need to be logged in to post a Review!')
+//             return
+//         }
 
-        res.status(200).json(newReview)
-    } catch (err) {
-        res.status(400).json(err)
-    }
-})
+//         res.status(200).json(newReview)
+//     } catch (err) {
+//         res.status(400).json(err)
+//     }
+// })
 
 
 router.delete('/:id', withAuth, async (req, res) => {

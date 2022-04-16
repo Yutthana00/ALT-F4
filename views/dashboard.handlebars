@@ -1,3 +1,4 @@
+
 {{! DASHBOARD HEADER}}
 <header class="bg-white shadow">
   <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -6,6 +7,7 @@
 </header>
 
 {{! DASHBOARD HEADER}}
+
 <main>
   <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
 
@@ -19,10 +21,9 @@
           {{! ACCOUNT INFO BOX }}
           <div class="bg-white shadow m-6 overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">
-              <h3 class="text-lg leading-6 font-medium text-gray-900">Applicant
+              <h3 class="text-lg leading-6 font-medium text-gray-900">Account
                 Information</h3>
-              <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details
-                and application.</p>
+              <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details</p>
             </div>
             <div class="border-t border-gray-200">
               <dl>
@@ -35,7 +36,7 @@
                   {{! USER NAME GOES HERE }}
                   <dd
                     class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                  >Placement</dd>
+                  >{{user.name}}</dd>
                 </div>
 
                 {{! EMAIL SECTION }}
@@ -47,7 +48,7 @@
                   {{! USER EMAIL GOES HERE }}
                   <dd
                     class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-                  >placement@Example.com</dd>
+                  >{{user.email}}</dd>
                 </div>
 
               </dl>
@@ -63,11 +64,11 @@
           </button>
 
           {{! DEACTIVATE ACCOUNT }}
-          <button
+          {{!-- <button
             class="bg-red-500 m-6 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
           >
             Deactivate Account
-          </button>
+          </button> --}}
         </div>
 
         {{! PREVIOUS REVIEWS RENDER  }}
@@ -75,29 +76,20 @@
           <h2 class="text-xl font-bold m-6 text-gray-900">Previous Reviews</h2>
 
           {{! HOW MANY REVIEWS THE USER HAS }}
-          <a
+          {{! <a
             href="#"
             class="text-sm m-6 font-medium text-gray-900 underline hover:no-underline dark:text-white"
-          >73 reviews</a>
+          >73 reviews</a> }}
 
           <div class="h-auto bg-white rounded-xl shadow-sm p-6 relative">
             <div
               class="flex items-center border-b relative border-gray-100 border-solid pb-5 mb-5"
             >
-              <img
-                src="https://cdn.devdojo.com/images/january2022/09-sam-robinson.jpeg"
-                class="rounded-full mr-3 w-12 h-12"
-              />
               <div class="relative">
-                <p class="font-semibold text-gray-600 leading-none my-1">Sam
-                  Robinson</p>
-                <p class="font-medium text-sm text-gray-400">Lead Developer at
-                  Socnet</p>
+                <p class="font-semibold text-gray-600 leading-none my-1">{{user.name}}</p>
               </div>
             </div>
-            <blockquote class="text-gray-400 z-10 leading-7 relative pb-3">"I
-              didn't realize it was this easy to get organized and integrated
-              with their service!"</blockquote>
+            <blockquote class="text-gray-400 z-10 leading-7 relative pb-3">"games critics are the worst"</blockquote>
             <svg
               class="h-auto absolute z-0 top-0 right-0 w-12 opacity-30 mt-6 mr-7 text-gray-200"
               fill="currentColor"
