@@ -63,6 +63,7 @@ We used a range of technologies to help us achieve our website. As we wanted to 
 ### Dependencies
 
 - [JavaScript](https://www.google.com/search?q=javascript&oq=javascript&aqs=chrome..69i57j35i39l2j0i67l2j69i61j69i60j69i61.1485j0j7&sourceid=chrome&ie=UTF-8)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [NodeJS](https://nodejs.org/en/)
 - [MySQL2](https://www.npmjs.com/package/mysql)
 - [Sequelize](https://www.npmjs.com/package/sequelize)
