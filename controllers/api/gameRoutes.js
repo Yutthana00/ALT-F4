@@ -5,6 +5,23 @@ const axios = require('axios');
 const { response } = require('express');
 const { searchForGame, homePageGames } = require('../../lib/igdb')
 
+module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // router.post('/:search', async (req, res) => {
 
 // const userSearch = req.params.search
@@ -80,4 +97,3 @@ const { searchForGame, homePageGames } = require('../../lib/igdb')
 //     }
 // })
 
-module.exports = router

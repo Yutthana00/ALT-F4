@@ -1,27 +1,25 @@
 {{! THE MAIN GAME PAGE }}
 {{! Each allows us to loop through the game data and display dynamically depending on the game the user chooses }}
 {{#each games as |game|}}
-  {{! This is the code that is being displayed }}
+{{! This is the code that is being displayed }}
   <section class="w-full bg-white">
     <div
       class="px-10 pt-16 pb-16 ml-auto mr-auto max-w-7xl md:px-24 lg:px-12 lg:py-20"
     >
       <div class="grid gap-5 lg:grid-cols-2 bg-right">
 
-        {{! Right-hand Div to display game information  }}
+{{! Right-hand Div to display game information  }}
         <div class="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
-
           <div class="max-w-xl mb-6">
 
-            {{! Dynamically displaying the name of the chosen game }}
+{{! Dynamically displaying the name of the chosen game }}
             <div class="mb-6">
               <p
                 class="inline font-sans text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl sm:leading-none"
               >{{game.name}}</p>
-
             </div>
 
-            {{! Dynamically displaying the summary of the chosen game }}
+{{! Dynamically displaying the summary of the chosen game }}
             <p
               class="text-base text-gray-700 md:text-lg text-justify"
             >{{game.summary}}</p>
@@ -33,12 +31,10 @@
           >
             <span id="game-id" class="">{{game.id}}</span>
           </div>
-
         </div>
 
-        {{! Cover Image that corresponds to the game }}
+      {{! Cover Image that corresponds to the game }}
         <div class="flex justify-center lg:items-center">
-
           <div class="p-9 m-9">
             <img
               src="{{game.cover.url}}"
@@ -46,26 +42,23 @@
             />
           </div>
         </div>
-
-        {{! Closing Tags }}
+      {{! Closing Tags }}
       </div>
     </div>
   </section>
 {{/each}}
 
 {{! Reviews Page }}
-
 <section class="w-full bg-gray-50 sm:py-16 py-12 md:py-20 relative">
   <div class="max-w-7xl mx-auto px-10">
 
-    {{! Review Title }}
+{{! Review Title }}
     <div
       class="flex flex-col mb-7 sm:mb-20 items-start md:items-center justify-center"
     >
       <p
         class="sm:tracking-widest sm:text-base text-sm uppercase font-medium text-gray-500"
       >What do you think?</p>
-
       <div class="mt-1 md:mt-4 items-center flex text-gray-900">
         <svg
           class="w-8 h-8 sm:block hidden mr-1.5 mt-0.5"
@@ -83,8 +76,7 @@
       </div>
     </div>
 
-    {{! Review Box }}
-
+{{! Review Box }}
     <div class="max-w-lg shadow-md rounded">
       <form id="post-form" action=""  class="w-full p-4 rounded">
         <div class="mb-2 rounded">
@@ -95,18 +87,16 @@
             placeholder=""
           ></textarea>
         </div>
-        {{!-- POST BUTTON --}}
+{{!-- POST BUTTON --}}
         <button id="post-btn" type="submit"
           class="px-3 py-2 text-sm text-indigo-100 bg-indigo-600 rounded"
         >Post</button>
       </form>
     </div>
 
-    {{! Reviews Render Here }}
-
+{{! Reviews Render Here dynamicly}}
     {{#each Review as |Review|}}
     <div>
-
       <div class="h-auto bg-white rounded-xl shadow-sm p-6 relative">
         <div
           class="flex items-center border-b relative border-gray-100 border-solid pb-5 mb-5"
@@ -127,8 +117,6 @@
           ></path></svg>
       </div>
       {{/each}}
-
-
 
       <div class="h-auto bg-white rounded-xl shadow-sm p-6 relative">
         <div
@@ -157,14 +145,11 @@
             d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
           ></path></svg>
       </div>
-
     </div>
   </div>
   <div
     class="bg-gradient-to-t from-gray-50 h-96 w-full bottom-0 left-0 absolute z-20 flex items-end justify-center"
   >
-
   </div>
 </section>
-
 <script src="/js/postReview.js"></script>

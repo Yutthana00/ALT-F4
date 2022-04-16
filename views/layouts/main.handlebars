@@ -20,11 +20,9 @@
     <link rel="stylesheet" href="/css/style.css" />
     {{!-- LOGO ADDED TO WEBSITE--}}
     <link rel="shortcut icon" type="image/jpg" href="/images/croped_logo.jpg"/>
-
   </head>
-
+  
   <body>
-
     <!-- HEADER OF PAGE -->
     <section class="w-full px-8 text-gray-700 bg-white">
       <div
@@ -40,11 +38,6 @@
             href="/"
             class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0"
           >
-{{!-- ALT F4 logo ghost --}}
-            {{! <span
-              class="mx-auto text-xl font-black leading-none text-gray-900 select-none"
-            >ALT<span class="text-indigo-500">F4</span></span> }}
-
             {{! This 'a' tag will create a link to redirect to the homepage}}
           <a href="/" target="_blank" class="flex items-center">
             {{! IMAGE LOGO TOP LEFT }}
@@ -53,14 +46,12 @@
               class="mr-0 h-10"
               alt="ALTF4_LOGO"
             />
-
           </a>
 
           {{! NAV BAR }}
           <nav
             class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200"
           >
-
             <a
               href="/"
               class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
@@ -74,29 +65,28 @@
               class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
             >Dashboard</a>
           </nav>
-
         </div>
 
         {{! SEARCH BAR }}
         <div class="pt-2 relative mx-auto text-gray-600">
 
-          {{! INPUT BOX }}
+        {{! INPUT BOX }}
           <input
             class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
             type="search"
             name="search"
             placeholder="Search"
-            {{! USER SEARCH ID }}
+        {{! USER SEARCH ID }}
             id="user-search"
           />
 
-          {{! SEARCH BUTTON ICON }}
+        {{! SEARCH BUTTON ICON }}
           <button
             id="search-btn"
             type="submit"
             class="absolute right-0 top-0 mt-5 mr-4"
           >
-            {{! This SVG creates the icon and the path is drawing the image from a set of Co-ordinates  }}
+          {{! This SVG creates the icon and the path is drawing the image from a set of Co-ordinates  }}
             <svg
               class="text-gray-600 h-4 w-4 fill-current"
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +108,7 @@
           </button>
         </div>
 
-        {{! LOGIN AND SIGNUP BUTTON }}
+          {{! LOGIN AND SIGNUP BUTTON }}
         <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
           <a
             href="/signUp"
@@ -131,26 +121,27 @@
           >Login</a>
         </div>
 
-        {{! CLOSING DIV }}
+          {{! CLOSING DIV }}
       </div>
     </section>
 
-    {{! MAIN PAGE SECTION }}
+          {{! MAIN PAGE SECTION }}
     {{{body}}}
 
-    {{! GREY SEPERATION LINE }}
+          {{! GREY SEPERATION LINE }}
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
-    {{! FOOTER }}
+          {{! FOOTER }}
     <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
       <div class="md:flex md:justify-between">
 
-        {{! LEFT HAND LOGO }}
+          {{! LEFT HAND LOGO }}
         <div class="mb-6 md:mb-0">
 
           {{! This 'a' tag will create a link to redirect to the homepage}}
           <a href="/" target="_blank" class="flex items-center">
-            {{! IMAGE LOGO }}
+
+          {{! IMAGE LOGO }}
             <img
               src="/images/croped_logo.jpg"
               class="mr-0 h-10"
@@ -162,17 +153,17 @@
           </a>
         </div>
 
-        {{! RIGHT HAND INFO LINKS }}
+          {{! RIGHT HAND INFO LINKS }}
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
 
           {{! RESOURCES COLUMN }}
           <div>
-            {{! Title of Column }}
+          {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >Resources</h3>
 
-            {{! List Below Column }}
+          {{! List Below Column }}
             <ul>
               <li class="mb-4">
                 <a
@@ -195,12 +186,12 @@
           {{! FOLLOW US COLUMN }}
           <div>
 
-            {{! Title of Column }}
+          {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >OUR WORK</h3>
 
-            {{! List below Column }}
+          {{! List below Column }}
             <ul>
               <li class="mb-4">
                 <a
@@ -222,12 +213,12 @@
           {{! CONTACT COLUMN }}
           <div>
 
-            {{! Title of Column }}
+          {{! Title of Column }}
             <h3
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >CONTACT US</h3>
 
-            {{! List Below Column }}
+          {{! List Below Column }}
             <ul>
               <li class="mb-4">
                 <a
@@ -250,14 +241,14 @@
         </div>
       </div>
 
-      {{! GREY SEPERATION LINE }}
+          {{! GREY SEPERATION LINE }}
       <hr
         class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
       />
 
-      {{! BELOW LINE INFO CONTAINER DIV }}
+          {{! BELOW LINE INFO CONTAINER DIV }}
       <div class="sm:flex sm:items-center sm:justify-between">
-        {{! LEFT HAND COPRYRIGHT INFO }}
+          {{! LEFT HAND COPRYRIGHT INFO }}
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">©
           2022
           <a
@@ -267,7 +258,7 @@
           >ALT-F4™</a>. All Rights Reserved.
         </span>
 
-        {{! LEFT HAND SOCIAL MEDIA ICONS }}
+          {{! LEFT HAND SOCIAL MEDIA ICONS }}
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           {{! Each icon is created using XML code block that is served and rendered in the browser }}
           {{! Each Path within the SVG tags are the coordinates the image is drawn from }}
@@ -292,14 +283,10 @@
               ></path>
             </svg>
           </a>
- 
-
         </div>
-
       </div>
-      {{! CLOSING FOOTER }}
+          {{! CLOSING FOOTER }}
     </footer>
     <script src="/js/gameSearch.js"></script>
-    
   </body>
 </html>
