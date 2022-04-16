@@ -96,7 +96,7 @@ We came up with this design idea as we wanted something to help us visualise our
 
 ### The Original design Idea:
 
-![OldDesign](here)
+![OldDesign](https://github.com/Yutthana00/ALT-F4/blob/2c2517d2cd893baa0a759f0ff7bccf1098a2097b/public/images/design-idea.png)
 
 ### End Product:
 
@@ -106,17 +106,19 @@ As a Collective we had struggled with the backend before setting out into this p
 
 ### Logo
 
-![ALT-F4-LOGO]()
+![ALT-F4-LOGO](https://github.com/Yutthana00/ALT-F4/blob/2c2517d2cd893baa0a759f0ff7bccf1098a2097b/public/images/6_copy.png)
 
 ### Home Page
 
+![homepage](https://github.com/Yutthana00/ALT-F4/blob/2c2517d2cd893baa0a759f0ff7bccf1098a2097b/public/images/Website%20image.png)
+
 ### About Us
 
-### FAQ
-
-### Game Page
+![FAQ](https://github.com/Yutthana00/ALT-F4/blob/2c2517d2cd893baa0a759f0ff7bccf1098a2097b/public/images/FAQ.png)
 
 ### Creating an Account & Logging In
+
+![Loggin](https://github.com/Yutthana00/ALT-F4/blob/2c2517d2cd893baa0a759f0ff7bccf1098a2097b/public/images/loggin.png)
 
 ## Troubleshooting, Bugs & Development Difficulties
 
