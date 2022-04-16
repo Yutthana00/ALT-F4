@@ -1,3 +1,22 @@
+<section
+  class="flex justify-center relative block py-20 overflow-hidden leading-6 text-left text-indigo-900 bg-white"
+>
+  <div
+    class="w-full max-w-2xl px-16 mx-auto leading-6 text-left sm:px-12 md:px-8 xl:px-12"
+  >
+    <div
+      class="relative w-full px-4 leading-6 text-center xl:flex-grow-0 xl:flex-shrink-0 lg:flex-grow-0 lg:flex-shrink-0"
+    >
+      <div
+        class="box-border text-sm font-semibold uppercase text-indigo-500"
+      >Searched Games</div>
+      <h2
+        class="box-border mx-0 mt-6 mb-0 font-sans text-4xl font-bold leading-tight sm:text-5xl md:text-6xl text-gray-800"
+      >Your Results: </h2>
+    </div>
+  </div>
+</section>
+
 {{! CONTENT LAYOUT }}
 <div class="flex grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
 
@@ -11,9 +30,10 @@
       <div
         class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4"
       >
-      {{!-- game id here and game cover below --}}
+        {{! game id here and game cover below }}
         <a id="game_id" href="/review/{{game.id}}" class="block">
-          <img id="game-cover"
+          <img
+            id="game-cover"
             class="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
             src="{{game.cover.url}}"
           />
@@ -40,6 +60,16 @@
       </div>
     {{/each}}
   {{else}}
-    <h1>TEST</h1>
+    <section
+      class="relative py-16 bg-white min-w-screen animation-fade animation-delay grid grid-flow-row-dense grid-cols-5 flex justify-end"
+    >
+      {{! <div class="container px-0 px-8 mx-auto sm:px-12 xl:px-5"> }}
+
+      <h3
+        class="mt-1 text-2xl font-bold text-left text-gray-800 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center sm:mx-0"
+      >
+        No Game By That Name, Sorry...
+      </h3>
+    </section>
   {{/if}}
 </div>
