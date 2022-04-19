@@ -2,10 +2,6 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-// console.log("Sequelize: ", sequelize);
-
-// console.log("typeof: ", typeof sequelize);
-
 class User extends Model {
   checkPassword(loginPass) {
     return bcrypt.compareSync(loginPass, this.password);
@@ -34,15 +30,6 @@ User.init(
       validate: {
         isEmail: true,
       },
-
-      // reviews: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: true,
-      //   references: {
-      //     model: "review",
-      //     key: "id",
-      //   },
-      // },
     },
     password: {
       type: DataTypes.STRING,

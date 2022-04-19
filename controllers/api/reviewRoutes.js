@@ -1,6 +1,5 @@
-// const express = require('express')
 const router = require("express").Router();
-const { Review, Game, User } = require("../../models");
+const { Review, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -42,10 +41,7 @@ router.get("/:game_id", async (req, res) => {
 
 router.post("/:game_id", withAuth, async (req, res) => {
   try {
-    console.log(`HELLO!`);
-    // const game_id = req.params.game_id
     const user_id = req.session.user_id;
-    // const game_id = game_id
     console.log("you are in the post review");
     console.log("The body is ", req.body);
     console.log("userid is ", user_id);

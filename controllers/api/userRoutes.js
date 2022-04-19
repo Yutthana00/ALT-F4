@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
@@ -16,8 +15,7 @@ router.get("/", async (req, res) => {
 
 // CREATE a User & add to our db
 router.post("/signUp", async (req, res) => {
-
-  console.log(req.body)
+  console.log(req.body);
   try {
     // Take the body of the request and map it to our User model
     const userData = await User.create({
@@ -28,13 +26,12 @@ router.post("/signUp", async (req, res) => {
 
     // create a session once signed up
     req.session.save(() => {
-        req.session.user_id = userData.id
-        req.session.logged_in = true
-        res.json({ user: userData, message: "You are signed up and logged in!" })
-    })
-
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      res.json({ user: userData, message: "You are signed up and logged in!" });
+    });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     // If there is an error, respond with this error message.
     res
       .status(400)
@@ -85,25 +82,6 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
-
-
-router.delete('/deactive', withAuth, async (req, res) => {
-    try {
-        const userData = await User.destroy({
-            where: { 
-                id: req.session.user_id
-            }
-        })
-
-        if (!withAuth) {
-            res.status(403).json({ message: 'You do not have permission to do this' })
-        }
-
-        res.status(200).json(userData)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
 
 
 module.exports = router;

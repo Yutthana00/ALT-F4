@@ -17,11 +17,4 @@ const postReviewBtn = async (event) => {
   }
 };
 
-// const postReviewBtn = async (event) => {
-//     event.preventDefault()
-//     // game_id = document.querySelector('#game_id').value.trim()
-
-//     document.location.replace(`/review/${encodeURIComponent(game_id)}`)
-// }
-
 document.querySelector("#post-form").addEventListener("submit", postReviewBtn);

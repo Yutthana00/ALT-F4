@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { json } = require("express/lib/response");
 const { first } = require("lodash");
 const { homePageGames, searchForGame, gameReviewPage } = require("../lib/igdb");
-const { User, Comment, Review, Game } = require("../models");
+const { User, Comment, Review } = require("../models");
 const withAuth = require("../utils/auth");
 
 // When the user wants to see the homepage:
@@ -33,14 +33,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-// UNFINISHED COMMENTS
 // When a user wants to look at their dashboard:
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     // Finds the users previous session with their id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      // include: [{ model: Review }]
     });
 
     const user = userData.get({ plain: true });
@@ -58,7 +56,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get("/search/:search", async (req, res) => {
   const userSearch = req.params.search;
-  // we don't have the search yet
+  // selects the user inout to sreach
 
   try {
     const response = await searchForGame(userSearch);
@@ -99,12 +97,6 @@ router.get("/review/:game_id", async (req, res) => {
     let newUrl = url.replace("t_thumb", "t_1080p");
     game.cover.url = newUrl;
 
-    // for (let i = 0; i < games.length; i++) {
-    //   let url = games[i].cover.url;
-    //   let newUrl = url.replace("t_thumb", "t_1080p");
-    //   games[i].cover.url = newUrl;
-    // }
-
     const reviewData = await Review.findAll({
       where: { game_id },
       include: [User],
@@ -114,7 +106,6 @@ router.get("/review/:game_id", async (req, res) => {
     res.render("gamePage", {
       game,
       reviews,
-      // gameGenre
     }); // Render this .handlebar partial
   } catch (err) {
     // Or provide an error if this was unable to go through
@@ -195,23 +186,5 @@ router.get("/aboutUs", async (req, res) => {
   }
 });
 
-// // A user has searched for a game and now the list of games need to display:
-// router.get("/search", async (req, res) => {
-//   // When the user clicks on search...
-//   try {
-//     res.render("search"); // Render this .handlebar partial
-//   } catch (err) {
-//     // Or provide an error if this was unable to go through
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/gamerview', async (req, res) => {
-//   try {
-//     const gameData = await Game.findByPk()
-
-//   } catch (err){
-//     res.status(500).json(err)
-// })
 
 module.exports = router;
